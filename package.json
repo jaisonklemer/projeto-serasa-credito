@@ -1,0 +1,16 @@
+{
+  "name": "credito",
+  "version": "1.0.0",
+  "description": "Sistema de crédito pessoal da empresa CréditoParaTodxs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "Jaison Klemer",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1"
+  }
+}
