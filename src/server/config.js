@@ -6,12 +6,12 @@ const session = require("express-session");
 
 const app = express();
 
+app.use(express.json());
 app.use(
   express.urlencoded({
     extended: true,
   })
 );
-app.use(express.json());
 
 app.use("/public", express.static("public"));
 app.set("views", "public/views");

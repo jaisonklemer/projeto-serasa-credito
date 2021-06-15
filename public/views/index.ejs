@@ -1,18 +1,44 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CréditoParaTodxs - Crédito Pessoal Simplificado</title>
 
-    <link rel="stylesheet" href="/public/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/public/css/styles.css">
+    <link rel="stylesheet" href="/public/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/public/css/styles.css" />
+
+    <link rel="stylesheet" href="/public/css/components/credito.card.css" />
+
     <script src="/public/js/bootstrap.min.js"></script>
-</head>
-<body>
+  </head>
+  <header class="navbar navbar-expand-lg navbar-light bg-light">
+    <%- include('./components/navbar') %>
+  </header>
+  <body>
     <div class="container d-flex">
-        
+      <div class="container">
+        <%- include('./components/credito-card', {titulo: "Crédito Consignado",
+        descricao: "Lorem Ipsum"}) %>
+      </div>
+      <div class="container">
+        <%- include('./components/credito-card', {titulo: "Crédito Consignado",
+        descricao: "Lorem Ipsum"}) %>
+      </div>
+
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-bs-toggle="modal"
+        data-bs-target="#login-modal"
+      >
+        Login
+      </button>
     </div>
-</body>
+    <footer>
+      <%- include('./components/login-modal') %> <%-
+      include('./components/register-modal') %>
+    </footer>
+  </body>
 </html>

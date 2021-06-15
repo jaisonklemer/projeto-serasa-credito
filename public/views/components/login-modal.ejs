@@ -1,0 +1,50 @@
+<div class="modal fade" id="login-modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Login - CréditoParaTodxs</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Fechar"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form action="/login" method="post">
+          <label for="email">Email</label>
+          <input
+            type="text"
+            placeholder="email@example.com"
+            class="form-control"
+            autocomplete="off"
+            name="email"
+          />
+          <label for="password">Senha</label>
+          <input
+            type="password"
+            placeholder="Senha"
+            class="form-control"
+            autocomplete="off"
+            name="password"
+          />
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary button-form">
+              Login
+            </button>
+            <div>
+              <a
+                href="#"
+                class="card-link"
+                data-bs-dismiss="modal"
+                data-bs-toggle="modal"
+                data-bs-target="#register-modal"
+                >Quer cadastrar?</a
+              >
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

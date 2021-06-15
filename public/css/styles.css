@@ -2,3 +2,14 @@
   background-color: #f25eb0 !important;
   border: none;
 }
+.modal-footer {
+  border: none;
+  display: block;
+  padding: 0.75rem 0;
+  text-align: center;
+}
+
+.button-form {
+  width: 100%;
+  margin: 0;
+}
