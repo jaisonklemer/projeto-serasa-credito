@@ -3,6 +3,7 @@ const PORT = process.env.PORT || 5000;
 
 class Initializer {
   init() {
+    this._database();
     this._server();
   }
 
@@ -10,6 +11,10 @@ class Initializer {
     server.listen(PORT, () => {
       console.log(`Servidor iniciado na porta ${PORT}`);
     });
+  }
+
+  _database() {
+    require("../database/db");
   }
 }
 
