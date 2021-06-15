@@ -16,4 +16,8 @@ app.use("/public", express.static("public"));
 app.set("views", "public/views");
 app.set("view engine", "ejs");
 
+app.use(function (req, res, next) {
+  res.render("404");
+});
+
 module.exports = app;
