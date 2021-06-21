@@ -9,6 +9,12 @@ Baixe e instale os seguintes requisitos antes de iniciar o projeto
 
 ## Instalação do sistema
 
+Clone o repositório
+
+```bash
+git clone https://github.com/jaisonklemer/projeto-serasa-credito
+```
+
 Instale as dependências com o comando:
 
 ```bash
@@ -25,6 +31,12 @@ Por exemplo:
 
 ```bash
 DB_CONNECTION=mongodb://localhost:27017/credito
+```
+
+Popule o Banco de Dados com dados iniciais com o comando:
+
+```bash
+npm run seed
 ```
 
 Para executar o sistema, execute o comando:
