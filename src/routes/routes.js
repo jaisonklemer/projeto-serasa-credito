@@ -5,8 +5,11 @@ const passport = require("passport");
 const route = Router();
 
 route.get("/", (req, res) => {
-  console.log(req.user);
-  res.render("index", { user: req.user });
+  var error;
+  if (req.query.loginFail) {
+    error = "Login ou Senha inválidos";
+  }
+  res.render("index", { user: req.user, error: error });
 });
 
 route.get("/login", function (req, res, next) {

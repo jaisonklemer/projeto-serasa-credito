@@ -12,10 +12,14 @@
     <link rel="stylesheet" href="/public/css/components/credito.card.css" />
 
     <script src="/public/js/bootstrap.min.js"></script>
+    <script src="/public/js/main.js"></script>
   </head>
   <header class="navbar navbar-expand-lg navbar-light bg-light">
     <%- include('./components/navbar') %>
   </header>
+  <% if(error){%>
+    <%- include('./components/toast-message', {mensagem: error}) %>
+    <%}%>
   <body>
     <div class="container mt-3">
       <div class="row ">
