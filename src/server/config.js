@@ -41,7 +41,7 @@ app.get("*", function (req, res, next) {
 app.use(routes);
 
 app.use(function (req, res, next) {
-  res.render("404");
+  res.render("404", { user: req.user });
 });
 
 module.exports = app;

@@ -6,16 +6,13 @@ class UserController {
 
     User.findOne({ email: email }).then((user) => {
       if (user) {
-        return res.render("index", {
-          error: "Usuário já existe no sistema!",
-          user: null,
-        });
+        return res.redirect("/?registerFail=true");
       }
 
       var newUser = new User({ name: name, email: email, password: password });
 
       newUser.save().then(() => {
-        return res.redirect("/login");
+        return res.redirect("/");
       });
     });
   }

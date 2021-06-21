@@ -2,29 +2,26 @@ const { Router } = require("express");
 const UserController = require("../controllers/user-controller");
 const passport = require("passport");
 const CreditoController = require("../controllers/credito-controller");
+const Emprestimo = require("../database/models/emprestimo.model");
+const RoutesHandler = require("../handlers/routes-handler");
+const { isAuthenticated } = require("../controllers/auth-controller");
 
 const route = Router();
 
-route.get("/", (req, res) => {
-  var error;
-  if (req.query.loginFail) {
-    error = "Login ou Senha inválidos";
-  }
-  CreditoController.getAll((credito) => {
-    res.render("index", {
-      user: req.user,
-      error: error,
-      creditos: credito || null,
-    });
-  });
-});
+route.get("/", RoutesHandler.handle);
 
 route.get("/login", function (req, res, next) {
   var error = null;
   if (req.query.loginFail) {
     error = "Login ou senha inválidos";
   }
-  res.render("index", { error: error, user: req.user });
+  CreditoController.getAll((credito) => {
+    res.render("index", {
+      message: { info: error, type: error ? "error" : "success" },
+      user: req.user,
+      creditos: credito || null,
+    });
+  });
 });
 
 route.post("/register", UserController.create);
@@ -41,5 +38,20 @@ route.post(
     res.redirect("/");
   }
 );
+
+route.post("/contratar", isAuthenticated, (req, res, next) => {
+  const { valueRange, taxa, valorParcela, creditoId, parcelas } = req.body;
+  let emprestimo = new Emprestimo({
+    idCredito: creditoId,
+    valorEmprestimo: valueRange,
+    qtdParcelas: parcelas,
+    valorParcela: valorParcela,
+    user: req.user.id,
+  });
+
+  emprestimo.save().then(() => {
+    res.redirect("/");
+  });
+});
 
 module.exports = route;
