@@ -13,12 +13,13 @@
 
     <script src="/public/js/bootstrap.min.js"></script>
     <script src="/public/js/main.js"></script>
+    <script src="/public/js/parcelamento.js"></script>
   </head>
   <header class="navbar navbar-expand-lg navbar-light bg-light">
     <%- include('./components/navbar') %>
   </header>
-  <% if(error){%>
-    <%- include('./components/toast-message', {mensagem: error}) %>
+  <% if(message.info != null){%>
+    <%- include('./components/toast-message', {mensagem: message}) %>
     <%}%>
   <body>
     <div class="container mt-3">
@@ -35,10 +36,13 @@
       </div>
 
       </div>
+
+
     </div>
     <footer>
-      <%- include('./components/login-modal') %> <%-
-      include('./components/register-modal') %>
+      <%- include('./components/login-modal') %> 
+      <%- include('./components/register-modal') %>
+
     </footer>
   </body>
 </html>

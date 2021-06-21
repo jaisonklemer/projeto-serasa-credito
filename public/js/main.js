@@ -1,3 +1,7 @@
+window.onload = () => {
+  initToast();
+};
+
 function initToast() {
   var toast = document.getElementById("toast");
   if (toast) {
@@ -5,7 +9,3 @@ function initToast() {
     a.show();
   }
 }
-
-window.onload = () => {
-  initToast();
-};
