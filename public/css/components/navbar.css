@@ -9,3 +9,7 @@
 .nav-link {
   color: white !important;
 }
+
+.nav-item {
+  padding: 5px 30px;
+}
