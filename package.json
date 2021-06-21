@@ -4,7 +4,8 @@
   "description": "Sistema de crédito pessoal da empresa CréditoParaTodxs",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "seed": "node seeder.js"
   },
   "keywords": [],
   "author": "Jaison Klemer",

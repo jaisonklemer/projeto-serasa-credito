@@ -1,6 +1,7 @@
 const { Router } = require("express");
 const UserController = require("../controllers/user-controller");
 const passport = require("passport");
+const CreditoController = require("../controllers/credito-controller");
 
 const route = Router();
 
@@ -9,7 +10,13 @@ route.get("/", (req, res) => {
   if (req.query.loginFail) {
     error = "Login ou Senha inválidos";
   }
-  res.render("index", { user: req.user, error: error });
+  CreditoController.getAll((credito) => {
+    res.render("index", {
+      user: req.user,
+      error: error,
+      creditos: credito || null,
+    });
+  });
 });
 
 route.get("/login", function (req, res, next) {
