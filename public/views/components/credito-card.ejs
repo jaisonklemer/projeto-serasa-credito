@@ -3,6 +3,16 @@
     <h5 class="card-title"><%=data.name%></h5>
     <p class="card-text"><%=data.description%></p>
     <p class="card-text text-muted"><%=data.tax%>% ao mês</p>
-    <a href="#" class="btn btn-primary" data-id=<%=data.id%>>Contratar</a>
+    <button class="btn btn-primary"
+    type="button"
+    data-bs-toggle="modal"
+    data-bs-target="#contratar-modal-<%=data.id%>">Contratar</button>
   </div>
 </div>
+
+<div class="hide">
+  <%- include('./contratar-modal', {data: data}) %>
+</div>
+
+<script>
+</script>

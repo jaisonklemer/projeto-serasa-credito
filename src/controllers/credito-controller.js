@@ -6,6 +6,13 @@ class CreditoController {
       callback(doc);
     });
   }
+
+  static get(req, res, next) {
+    const { id } = req.body.id;
+    Credito.find({ id: id }, (err, doc) => {
+      res.send(doc);
+    });
+  }
 }
 
 module.exports = CreditoController;
