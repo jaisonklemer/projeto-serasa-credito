@@ -22,21 +22,16 @@
     <%}%>
   <body>
     <div class="container mt-3">
-      <div class="row ">
-        <div class="col mb-3">
-          <div class="container">
-            <%- include('./components/credito-card', {titulo: "Crédito Consignado", descricao: "Lorem Ipsum"}) %>
+      <div class="row">
+
+        <% creditos.forEach((credito) =>{%>
+          <div class="col mb-3">
+            <div class="container">
+              <%- include('./components/credito-card', {data: credito}) %>
+            </div>
           </div>
-        </div>
-        <div class="col mb-3">
-          <div class="container">
-            <%- include('./components/credito-card', {titulo: "Crédito Consignado", descricao: "Lorem Ipsum"}) %>
-          </div>
-        </div>
-        <div class="col mb-3">
-          <div class="container">
-            <%- include('./components/credito-card', {titulo: "Crédito Consignado", descricao: "Lorem Ipsum"}) %>
-          </div>
+          <%})%>
+
       </div>
 
       </div>
