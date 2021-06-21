@@ -17,24 +17,25 @@
     <%- include('./components/navbar') %>
   </header>
   <body>
-    <div class="container d-flex">
-      <div class="container">
-        <%- include('./components/credito-card', {titulo: "Crédito Consignado",
-        descricao: "Lorem Ipsum"}) %>
-      </div>
-      <div class="container">
-        <%- include('./components/credito-card', {titulo: "Crédito Consignado",
-        descricao: "Lorem Ipsum"}) %>
+    <div class="container mt-3">
+      <div class="row ">
+        <div class="col mb-3">
+          <div class="container">
+            <%- include('./components/credito-card', {titulo: "Crédito Consignado", descricao: "Lorem Ipsum"}) %>
+          </div>
+        </div>
+        <div class="col mb-3">
+          <div class="container">
+            <%- include('./components/credito-card', {titulo: "Crédito Consignado", descricao: "Lorem Ipsum"}) %>
+          </div>
+        </div>
+        <div class="col mb-3">
+          <div class="container">
+            <%- include('./components/credito-card', {titulo: "Crédito Consignado", descricao: "Lorem Ipsum"}) %>
+          </div>
       </div>
 
-      <button
-        type="button"
-        class="btn btn-primary"
-        data-bs-toggle="modal"
-        data-bs-target="#login-modal"
-      >
-        Login
-      </button>
+      </div>
     </div>
     <footer>
       <%- include('./components/login-modal') %> <%-

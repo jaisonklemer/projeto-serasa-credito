@@ -5,7 +5,8 @@ const passport = require("passport");
 const route = Router();
 
 route.get("/", (req, res) => {
-  res.render("index");
+  console.log(req.user);
+  res.render("index", { user: req.user });
 });
 
 route.get("/login", function (req, res, next) {
@@ -23,11 +24,11 @@ route.post(
   passport.authenticate("local", {
     failureFlash: true,
     failureMessage: "Usuário ou senha inválidos",
-    successRedirect: "/profile",
+    successRedirect: "/",
     failureRedirect: "/login?loginFail=true",
   }),
   function (req, res, next) {
-    res.redirect("/profile");
+    res.redirect("/");
   }
 );
 

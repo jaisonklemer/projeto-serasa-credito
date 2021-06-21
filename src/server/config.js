@@ -19,9 +19,6 @@ app.set("view engine", "ejs");
 
 require("../services/auth-service.js")(passport);
 
-app.use(passport.initialize());
-app.use(passport.session());
-
 app.use(
   session({
     secret: "121186470fa2b47c5311357b06a31e16",
@@ -31,7 +28,15 @@ app.use(
   })
 );
 
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use(flash());
+
+app.get("*", function (req, res, next) {
+  req.user = req.user || null;
+  next();
+});
 
 app.use(routes);
 
