@@ -39,27 +39,18 @@ route.post(
   }
 );
 
-route.post("/contratar", isAuthenticated, (req, res, next) => {
-  const { valueRange, taxa, valorParcela, creditoId, parcelas } = req.body;
-  let emprestimo = new Emprestimo({
-    idCredito: creditoId,
-    valorEmprestimo: valueRange,
-    qtdParcelas: parcelas,
-    valorParcela: valorParcela,
-    user: req.user.id,
-    taxa: taxa,
-  });
-
-  emprestimo.save().then(() => {
-    res.redirect("/");
-  });
-});
+route.post("/contratar", isAuthenticated, EmprestimosController.store);
 
 route.get("/profile", isAuthenticated, (req, res, next) => {
   EmprestimosController.getByUser({ userId: req.user.id }, (emprestimos) => {
+    var msg = {info: null};
+    if(req.query.success){
+      msg = {info: 'Contrato realizado com sucesso!', type: 'success'}
+    }
     res.render("pages/profile", {
       user: req.user,
       emprestimos: emprestimos || null,
+      message: msg
     });
   });
 });

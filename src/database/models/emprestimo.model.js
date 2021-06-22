@@ -10,6 +10,7 @@ const emprestimoSchema = new mongoose.Schema(
     valorParcela: Number,
     qtdParcelas: Number,
     taxa: Number,
+    name: String
   },
   {
     timestamps: true,
