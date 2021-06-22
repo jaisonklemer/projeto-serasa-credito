@@ -1,0 +1,63 @@
+<div class="header-content-container">
+    <div class="container">
+        <div class="row">
+            <div class="col d-flex align-items-center text-center">
+                <div class="">
+                    <h1 class="h1">Dinheiro no seu bolso em apenas alguns cliques</h1>
+                    <p class="description">Simule e contrate sem sair de casa.</p>
+                    <p class="description">Sem burocracia. Sem letrinhas miúdas. Sem extresse.</p>
+                </div>
+            </div>
+            <div class="col text-center">
+                <img class="money" src="/public/images/money-pink.svg" alt="">
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<style>
+    .header-content-container{
+        min-height: 350px;
+        background: var(--thirdy-color);
+    }
+
+    .money{
+        width: 70%;
+        transform: scaleX(-1);
+    }
+
+    .h1{
+        color: var(--fourth-color);
+        font-size: 2.0rem;
+    }
+
+    @media (min-width: 1200px){
+        .h1 {
+            font-size: 3.5rem;
+        }
+
+        .header-content-container{
+            padding: 90px 20px;
+        }
+    }
+
+    .description{
+        color: white;
+        font-size: 1.2rem;
+    }
+
+    @media (max-width: 768px){
+        .description{
+            font-size: 1.0rem;
+        }
+
+        .header-content-container{
+            padding: 20px;
+        }
+
+        .money{
+            width: 300px;
+        }
+    }
+</style>

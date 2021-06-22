@@ -20,3 +20,7 @@
   --thirdy-color: #8a14d9;
   --fourth-color: #f25eb0;
 }
+
+body {
+  font-family: Nunito, sans-serif;
+}
