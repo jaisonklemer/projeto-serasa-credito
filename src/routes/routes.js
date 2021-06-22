@@ -1,7 +1,7 @@
 const { Router } = require("express");
 const UserController = require("../controllers/user-controller");
 const passport = require("passport");
-const CreditoController = require("../controllers/credito-controller");
+const EmprestimosController = require("../controllers/emprestimos-controller");
 const Emprestimo = require("../database/models/emprestimo.model");
 const RoutesHandler = require("../handlers/routes-handler");
 const { isAuthenticated } = require("../controllers/auth-controller");
@@ -47,10 +47,20 @@ route.post("/contratar", isAuthenticated, (req, res, next) => {
     qtdParcelas: parcelas,
     valorParcela: valorParcela,
     user: req.user.id,
+    taxa: taxa,
   });
 
   emprestimo.save().then(() => {
     res.redirect("/");
+  });
+});
+
+route.get("/profile", isAuthenticated, (req, res, next) => {
+  EmprestimosController.getByUser({ userId: req.user.id }, (emprestimos) => {
+    res.render("pages/profile", {
+      user: req.user,
+      emprestimos: emprestimos || null,
+    });
   });
 });
 
