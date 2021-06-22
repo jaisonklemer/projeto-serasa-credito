@@ -16,10 +16,10 @@
     <script src="/public/js/parcelamento.js"></script>
   </head>
   <header class="navbar navbar-expand-lg navbar-light bg-light">
-    <%- include('./components/navbar') %>
+    <%- include('./components/basics/navbar') %>
   </header>
   <% if(message.info != null){%>
-    <%- include('./components/toast-message', {mensagem: message}) %>
+    <%- include('./components/toast/toast-message', {mensagem: message}) %>
     <%}%>
   <body>
     <div class="container mt-3">
@@ -28,7 +28,7 @@
         <% creditos.forEach((credito) =>{%>
           <div class="col mb-3">
             <div class="container">
-              <%- include('./components/credito-card', {data: credito}) %>
+              <%- include('./components/cards/credito-card', {data: credito}) %>
             </div>
           </div>
           <%})%>
@@ -40,8 +40,8 @@
 
     </div>
     <footer>
-      <%- include('./components/login-modal') %> 
-      <%- include('./components/register-modal') %>
+      <%- include('./components/modals/login-modal') %> 
+      <%- include('./components/modals/register-modal') %>
 
     </footer>
   </body>
