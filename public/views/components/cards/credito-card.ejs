@@ -1,12 +1,16 @@
 <div class="card">
   <div class="card-body">
-    <h5 class="card-title"><%=data.name%></h5>
-    <p class="card-text"><%=data.description%></p>
-    <p class="card-text text-muted"><%=data.tax%>% ao mês</p>
-    <button class="btn btn-primary"
-    type="button"
-    data-bs-toggle="modal"
-    data-bs-target="#contratar-modal-<%=data.id%>">Contratar</button>
+    <h5 class="card-title">
+      <%=data.name%>
+    </h5>
+    <p class="card-text">
+      <%=data.description%>
+    </p>
+    <p class="card-text text-muted">
+      <%=data.tax%>% ao mês
+    </p>
+    <button class="btn btn-primary" type="button" data-bs-toggle="modal"
+      data-bs-target="#contratar-modal-<%=data.id%>">Simular</button>
   </div>
 </div>
 
