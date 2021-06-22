@@ -1,73 +1,72 @@
 <div class="modal fade" id="contratar-modal-<%=data.id%>" tabindex="-1">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Contratar - <%=data.name%></h5>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Fechar"
-          ></button>
-        </div>
-        <div class="modal-body">
-            <form action="/contratar" method="post">
-                <div class="container">
-                    <label>Quanto você precisa?</label>
-                    <div class="container text-center">
-                        <p id="currentValue-<%=data.id%>" class="text-align-center" style="color: var(--thirdy-color)"></p>
-                    </div>
-                    <input type="range" class="form-range" min="100" max="20000" id="rangeSelect-<%=data.id%>" name="valueRange">
-                    <div class="d-flex justify-content-between">
-                        <span class="rangeMin fs-6 text-muted">R$ 100</span>
-                        <span class="rangeMax fs-6 text-muted">R$ 20000</span>
-                    </div>
-                </div>
-                <div class="container mt-3">
-                    <label>Em quantas vezes?</label>
-                    <div>
-                      <input type="number" class="hide" hidden id="taxa-<%=data.id%>" value="<%=data.tax%>" name="taxa">
-                      <input type="hidden" class="hide" hidden id="valorParcela-<%=data.id%>" name="valorParcela" value="">
-                      <input type="hidden" class="hide" hidden name="creditoId" value=<%=data.id%>>
-                      <input type="number" class="form-control" id="qtdParcelas-<%=data.id%>" value="1" max="36" name="parcelas">
-                    </div>
-                </div>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Contratar - <%=data.name%>
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+      <div class="modal-body">
+        <form action="/contratar" method="post">
+          <div class="container">
+            <label>Quanto você precisa?</label>
+            <div class="container text-center">
+              <p id="currentValue-<%=data.id%>" class="text-align-center" style="color: var(--thirdy-color)"></p>
+            </div>
+            <input type="range" class="form-range" min="100" max="20000" id="rangeSelect-<%=data.id%>"
+              name="valueRange">
+            <div class="d-flex justify-content-between">
+              <span class="rangeMin fs-6 text-muted">R$ 100</span>
+              <span class="rangeMax fs-6 text-muted">R$ 20000</span>
+            </div>
+          </div>
+          <div class="container mt-3">
+            <label>Em quantas vezes?</label>
+            <div>
+              <input type="number" class="hide" hidden id="taxa-<%=data.id%>" value="<%=data.tax%>" name="taxa">
+              <input type="hidden" class="hide" hidden id="valorParcela-<%=data.id%>" name="valorParcela" value="">
+              <input type="hidden" class="hide" hidden name="creditoId" value=<%=data.id%>>
+              <input type="hidden" class="hide" hidden name="name" value="<%=data.name%>">
+              <input type="number" class="form-control" id="qtdParcelas-<%=data.id%>" value="1" max="36"
+                name="parcelas">
+            </div>
+          </div>
 
-                <div class="container">
-                    <div class="container text-center">
-                        <p id="resultado-<%=data.id%>" style="color: var(--primary-color); font-weight: bold;"></p>
-                    </div>
-                </div>
+          <div class="container">
+            <div class="container text-center">
+              <p id="resultado-<%=data.id%>" style="color: var(--primary-color); font-weight: bold;"></p>
+            </div>
+          </div>
 
-                <div class="container m-auto text-center">
-                  <div>
-                    <button class="btn btn-primary" type="submit">Contratar</button>
-                  </div>
-                </div>
-            </form>
-        </div>
+          <div class="container m-auto text-center">
+            <div>
+              <button class="btn btn-primary" type="submit">Contratar</button>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   </div>
-  
-  <script>
-      function selectValue(){
-        var rangeValue = document.getElementById('rangeSelect-<%=data.id%>');
-        var currentValue = document.getElementById('currentValue-<%=data.id%>');
+</div>
 
-        currentValue.innerHTML = `R$ ${rangeValue.value}`
-        new GetParcelamento().calcular('<%=data.id%>')
+<script>
+  function selectValue() {
+    var rangeValue = document.getElementById('rangeSelect-<%=data.id%>');
+    var currentValue = document.getElementById('currentValue-<%=data.id%>');
 
-        rangeValue.addEventListener('input', function(el){
-            currentValue.innerHTML = `R$ ${el.target.value}`
-            new GetParcelamento().calcular('<%=data.id%>')
-        })
+    currentValue.innerHTML = `R$ ${rangeValue.value}`
+    new GetParcelamento().calcular('<%=data.id%>')
 
-      };
+    rangeValue.addEventListener('input', function (el) {
+      currentValue.innerHTML = `R$ ${el.target.value}`
+      new GetParcelamento().calcular('<%=data.id%>')
+    })
+
+  };
 
 
-      selectValue();
-      document.getElementById('qtdParcelas-<%=data.id%>').addEventListener('input', function(){
-          new GetParcelamento().calcular('<%=data.id%>')
-      })
-  </script>
+  selectValue();
+  document.getElementById('qtdParcelas-<%=data.id%>').addEventListener('input', function () {
+    new GetParcelamento().calcular('<%=data.id%>')
+  })
+</script>

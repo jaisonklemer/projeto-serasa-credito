@@ -1,48 +1,49 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CréditoParaTodxs - Crédito Pessoal Simplificado</title>
-    <link rel="shortcut icon" href="/public/images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="/public/css/components/credito.card.css" />
 
-    <script src="/public/js/main.js"></script>
-    <script src="/public/js/parcelamento.js"></script>
-  </head>
-  <header class="navbar navbar-expand-lg navbar-light bg-light">
-    <%- include('./components/basics/navbar') %>
-  </header>
-  <% if(message.info != null){%>
-    <%- include('./components/toast/toast-message', {mensagem: message}) %>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CréditoParaTodxs - Crédito Pessoal Simplificado</title>
+  <link rel="shortcut icon" href="/public/images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/public/css/components/credito.card.css" />
+  <script src="/public/js/parcelamento.js"></script>
+</head>
+<header class="navbar navbar-expand-lg navbar-light bg-light">
+  <%- include('./components/basics/navbar') %>
+</header>
+<% if(message.info !=null){%>
+  <%- include('./components/toast/toast-message', {mensagem: message}) %>
     <%}%>
-  <body>
-    <div class="main">
-      <%- include('./components/content/header-content') %>
-      <div class="container mt-3 solutions-container">
-        <div class="row">
-          <div class="container text-center" id="solucoes">
-            <h2>Nossas soluções</h2>
-            <hr>
-          </div>
-          <% creditos.forEach((credito) =>{%>
-            <div class="col mb-3">
-              <div class="container">
-                <%- include('./components/cards/credito-card', {data: credito}) %>
+
+      <body>
+        <div class="main">
+          <%- include('./components/content/header-content') %>
+            <div class="container mt-3 solutions-container">
+              <div class="row">
+                <div class="container text-center" id="solucoes">
+                  <h2>Nossas soluções</h2>
+                  <hr>
+                </div>
+                <% creditos.forEach((credito)=>{%>
+                  <div class="col mb-3">
+                    <div class="container">
+                      <%- include('./components/cards/credito-card', {data: credito}) %>
+                    </div>
+                  </div>
+                  <%})%>
+
               </div>
             </div>
-            <%})%>
-  
         </div>
         </div>
-    </div>
-    </div>
-    <footer>
-      <%- include('./components/modals/login-modal') %> 
-      <%- include('./components/modals/register-modal') %>
+        <footer>
+          <%- include('./components/modals/login-modal') %>
+            <%- include('./components/modals/register-modal') %>
 
-      <%- include('./components/footer/about/about') %>
-    </footer>
-  </body>
+              <%- include('./components/footer/about/about') %>
+        </footer>
+      </body>
+
 </html>
