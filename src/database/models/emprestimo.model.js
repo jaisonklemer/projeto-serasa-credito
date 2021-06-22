@@ -9,6 +9,7 @@ const emprestimoSchema = new mongoose.Schema(
     valorEmprestimo: Number,
     valorParcela: Number,
     qtdParcelas: Number,
+    taxa: Number,
   },
   {
     timestamps: true,
