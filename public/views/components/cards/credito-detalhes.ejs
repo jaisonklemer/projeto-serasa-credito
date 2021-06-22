@@ -1,0 +1,9 @@
+<div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Valor: R$ <%=data.valorEmprestimo%></h5>
+      <p class="card-text">Forma de parcelamento: <%=data.qtdParcelas%>x de R$<%=data.valorParcela.toFixed(2)%></p>
+      <p class="card-text">Valor total: R$<%=(data.qtdParcelas * data.valorParcela).toFixed(2)%></p>
+      <p class="card-text">Taxa: <%=(data.taxa)%>% ao mês</p>
+      <p class="card-text text-muted">Contratado em: <%=new Date(data.createdAt)%></p>
+    </div>
+  </div>
