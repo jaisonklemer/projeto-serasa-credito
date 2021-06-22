@@ -5,9 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CréditoParaTodxs - Crédito Pessoal Simplificado</title>
-
+    <link rel="shortcut icon" href="/public/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/public/css/components/credito.card.css" />
-
 
     <script src="/public/js/main.js"></script>
     <script src="/public/js/parcelamento.js"></script>
@@ -21,7 +20,7 @@
   <body>
     <div class="main">
       <%- include('./components/content/header-content') %>
-      <div class="container mt-3">
+      <div class="container mt-3 solutions-container">
         <div class="row">
           <div class="container text-center" id="solucoes">
             <h2>Nossas soluções</h2>
@@ -43,6 +42,7 @@
       <%- include('./components/modals/login-modal') %> 
       <%- include('./components/modals/register-modal') %>
 
+      <%- include('./components/footer/about/about') %>
     </footer>
   </body>
 </html>

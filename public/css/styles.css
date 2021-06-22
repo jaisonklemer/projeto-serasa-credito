@@ -1,6 +1,6 @@
 .btn-primary {
   background-color: #f25eb0 !important;
-  border: none;
+  border: none !important;
 }
 .modal-footer {
   border: none;
@@ -23,4 +23,8 @@
 
 body {
   font-family: Nunito, sans-serif;
+}
+
+.solutions-container {
+  padding: 30px 70px 70px 70px;
 }
