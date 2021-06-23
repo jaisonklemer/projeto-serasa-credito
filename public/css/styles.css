@@ -22,9 +22,13 @@
 }
 
 body {
-  font-family: Nunito, sans-serif;
+  font-family: Nunito, sans-serif!important;
 }
 
 .solutions-container {
   padding: 30px 70px 70px 70px;
+}
+
+[class*="emprestimo-"]{
+  color: var(--primary-color);
 }

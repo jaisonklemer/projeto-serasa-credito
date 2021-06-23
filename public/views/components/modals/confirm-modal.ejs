@@ -1,0 +1,33 @@
+<div class="modal fade" id="confirm-modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Revise as informações antes de contratar</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Fechar"
+          ></button>
+        </div>
+        <div class="modal-body">
+            <p>Empréstimo selecionando: <span class="emprestimo-selecionado"></span></p>
+            <p>Valor do empréstimo: <span class="emprestimo-valor"></span></p>
+            <p>Forma de parcelamento: <span class="emprestimo-parcelamento"></span></p>
+            <p>Taxa (a.m): <span class="emprestimo-taxa"></span></p>
+            <p>Total de Juros: <span class="emprestimo-juros"></span></p>
+            <p>Valor total ao final do período: <span class="emprestimo-valorTotal"></span></p>
+        </div>
+        <div class="modal-footer modal-footer-custom">
+            <button type="button" class="btn btn-secondary button-form" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary button-form" id="contratar">Contratar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+      .modal-footer-custom{
+          flex-wrap: initial;
+      }
+  </style>

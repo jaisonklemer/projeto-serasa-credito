@@ -7,7 +7,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
       </div>
       <div class="modal-body">
-        <form action="/contratar" method="post">
+        <form class="simular-modal-<%=data.id%>">
           <div class="container">
             <label>Quanto você precisa?</label>
             <div class="container text-center">
@@ -40,7 +40,7 @@
 
           <div class="container m-auto text-center">
             <div>
-              <button class="btn btn-primary" type="submit">Contratar</button>
+              <a class="btn btn-primary" onclick="contratarButtonClick('<%=data.id%>')" data-bs-dismiss="modal">Contratar</a>
             </div>
           </div>
         </form>
@@ -53,20 +53,64 @@
   function selectValue() {
     var rangeValue = document.getElementById('rangeSelect-<%=data.id%>');
     var currentValue = document.getElementById('currentValue-<%=data.id%>');
-
     currentValue.innerHTML = `R$ ${rangeValue.value}`
     new GetParcelamento().calcular('<%=data.id%>')
-
     rangeValue.addEventListener('input', function (el) {
       currentValue.innerHTML = `R$ ${el.target.value}`
       new GetParcelamento().calcular('<%=data.id%>')
     })
-
   };
-
-
   selectValue();
   document.getElementById('qtdParcelas-<%=data.id%>').addEventListener('input', function () {
     new GetParcelamento().calcular('<%=data.id%>')
   })
+
+  function contratarButtonClick(formId) {
+    var formData = new FormData(document.getElementsByClassName("simular-modal-" + formId)[0]);
+    var data = {}
+    for (var [key, value] of formData.entries()) { 
+      data[key] = value;
+    }
+
+    loadConfirmModal(data);
+  }
+
+  function loadConfirmModal(data) {
+    console.log(data);
+    var confirmModal = new bootstrap.Modal(document.getElementById("confirm-modal"));
+
+    document.getElementsByClassName('emprestimo-selecionado')[0].innerHTML = data.name
+    document.getElementsByClassName('emprestimo-parcelamento')[0].innerHTML = 
+    `${data.parcelas}x de R$ ${parseFloat(data.valorParcela).toFixed(2).replace('.',',')}` 
+    document.getElementsByClassName('emprestimo-valor')[0].innerHTML = 
+    `R$ ${parseFloat(data.valueRange).toFixed(2).replace('.',',')}` 
+
+    document.getElementsByClassName('emprestimo-taxa')[0].innerHTML = `${data.taxa}%`
+
+    document.getElementsByClassName('emprestimo-juros')[0].innerHTML = 
+    `R$ ${((data.valorParcela * data.parcelas) - data.valueRange).toFixed(2).replace('.',',')}`
+
+    document.getElementsByClassName('emprestimo-valorTotal')[0].innerHTML = `R$ ${parseFloat((data.valorParcela * data.parcelas)).toFixed(2).replace('.',',')}`
+
+    confirmModal.show();
+
+    submitForm(data);
+  }
+
+  function submitForm(data) {
+    var button = document.getElementById('contratar');
+    
+    button.addEventListener('click', function(){
+      fetch('/contratar', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      }).then((response) =>{
+        window.location = response.url
+      })
+    })
+  }
 </script>

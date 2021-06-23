@@ -19,7 +19,6 @@
     <div class="main">
         <div class="container row mt-5">
             <% if(emprestimos.length){ %>
-                <%console.log('oi')%>
                 <% emprestimos.forEach((data)=>{ %>
                     <div class="col mb-3">
                         <%- include('../components/cards/credito-detalhes', {data: data}) %>
