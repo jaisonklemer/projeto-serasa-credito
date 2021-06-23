@@ -1,4 +1,4 @@
-const Credito = require("../models/Credito.model");
+const Credito = require("../models/credito.model");
 const Seeder = require("./seeder");
 
 class CreditoSeeder extends Seeder {
