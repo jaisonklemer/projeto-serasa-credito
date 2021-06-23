@@ -7,6 +7,8 @@ Baixe e instale os seguintes requisitos antes de iniciar o projeto
 - [Node.js](https://nodejs.org/en/download/)
 - [MongoDB](https://docs.mongodb.com/manual/installation/#mongodb-installation-tutorials)
 
+#
+
 ## Instalação do sistema
 
 Clone o repositório
@@ -21,11 +23,12 @@ Instale as dependências com o comando:
 npm i
 ```
 
+#
 ## Rodando o sistema
 
 Crie um arquivo `.env` no diretório raiz.
 
-Edite este arquivo com a URL de conexão com o MongoDB,
+Edite este arquivo com a STRING de conexão com o MongoDB,
 
 Por exemplo:
 
@@ -50,3 +53,40 @@ O servidor será iniciado em `localhost:5000`
 #
 
 ## Instruções de Uso
+
+### Realizando o login ou cadastro
+
+ - Na tela inicial o usuário pode fazer login
+
+![Login](docs/images/login.png)
+
+ - Ou realizar o cadastro
+
+![Cadastro](docs/images/cadastro.png)
+
+
+
+### Fazer uma simulação
+
+- Para simular, selecione um empréstimo entre os disponíveis e clique em `Simular`.
+
+- Escolha o valor desejado, junto com a quantidade de parcelas.
+
+![Simulação](docs/images/simulacao.png)
+
+- Clicando em `Contratar`, será mostrado um novo modal para revisão das informações.
+
+![Revisão](docs/images/confirmar.png)
+
+- Para finalizar, confirme clicando em `Contratar`.
+
+#
+
+## Tecnologias e Recursos Utilizados
+
+- [Node.js](https://nodejs.org/)
+- [MongoDB](https://mongodb.com/)
+- [Express.js](https://expressjs.com/pt-br/)
+- [Bootstrap 5](https://getbootstrap.com/)
+- [Ilustrações by unDraw](https://undraw.co/illustrations)
+
